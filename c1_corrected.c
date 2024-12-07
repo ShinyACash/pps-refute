@@ -1,6 +1,5 @@
 /*
-Problem Statement
-Write a program to check if a given string is a palindrome.
+Corrected code
 */
 
 #include <stdio.h>
@@ -9,12 +8,19 @@ Write a program to check if a given string is a palindrome.
 
 bool is_palindrome(char str[]) {
     int len = strlen(str);
+
+    // Check if the string is empty
+    if (len == 0) {
+        return false;
+    }
+
+    // Check if the string is a palindrome
     for (int i = 0; i < len / 2; i++) {
         if (str[i] != str[len - i - 1]) {
             return false;
         }
     }
-    return true; // Bug: Should return false if empty string
+    return true;
 }
 
 int main() {
@@ -27,13 +33,3 @@ int main() {
         printf("Not a Palindrome\n");
     return 0;
 }
-
-/*
-Correct test case:
-Input: "radar"
-Output: "Palindrome" (expected).
-
-Refute test case:
-Input: "" (empty string)
-Output: "Palindrome" (unexpected).
-*/

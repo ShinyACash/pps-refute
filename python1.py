@@ -1,19 +1,22 @@
-#1. Problem Statement
-#Write a program to check if a given number is even or odd.
+#Problem Statement
+#Write a program to check if two given strings are anagrams or not.
 
-def is_even(number):
-    return number % 2 == 0 # Bug: 0 outputs even too even though its neither even nor odd.
+def are_anagrams(str1, str2):
+    # Bug: Does not handle case sensitivity or spaces
+    return sorted(str1) == sorted(str2)
 
-number = int(input("Enter a number: "))
-if is_even(number):
-    print("Even")
+str1 = input("Enter first string: ")
+str2 = input("Enter second string: ")
+if are_anagrams(str1, str2):
+    print("Anagram")
 else:
-    print("Odd")
-    
-#Correct test case:
-#Input: 4
-#Output: Even (expected).
+    print("Not an Anagram")
 
-#Refute test case:
-#Input: 0
-#Output: Odd (unexpected).
+    
+"""Correct test case:
+Input: "listen", "silent"
+Output: "Anagram" (expected).
+
+Refute test case:
+Input: "Listen", "silent"
+Output: "Anagram" (unexpected, should be case-insensitive)."""

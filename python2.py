@@ -1,22 +1,26 @@
-#2. Problem Statement
-#Write a program to check if a given year is a leap year.
+#Problem Statement
+#Write a program to calculate the greatest common divisor (GCD) of two numbers.
 
-def is_leap_year(year):
-    # Bug: Fails to handle years divisible by 100 but not 400
-    if year % 4 == 0:
-        return True
-    return False
+def gcd(a, b):
+    while b != 0:
+        a, b = b, a % b  # Continue until b becomes 0
+    return a
 
-year = int(input("Enter a year: "))
-if is_leap_year(year):
-    print("Leap Year")
-else:
-    print("Not a Leap Year")
+num1 = int(input("Enter the first number: "))
+num2 = int(input("Enter the second number: "))
 
-#Correct test case:
-#Input: 2020
-#Output: "Leap Year" (expected).
+result = gcd(num1, num2)
+print(f"The GCD of {num1} and {num2} is: {result}")
 
-#Refute test case:
-#Input: 1900
-#Output: "Leap Year" (unexpected, as 1900 is not a leap year).
+
+"""
+Correct Test Case:
+
+Input: 56, 98
+Output: 14
+
+Refute Case:
+
+Input: 0, 25
+Output: 25 (if one number is 0, GCD is the other number).
+"""
